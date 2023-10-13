@@ -1,23 +1,22 @@
 CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra
-TARGET = a.out
-SRC = srcs/main.cpp srcs/Fixed.cpp srcs/Point.cpp srcs/bsp.cpp
-OBJ = $(SRC:.cpp=.o)
 
-all: $(TARGET)
+all: a.out
 
-$(TARGET): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+a.out: srcs/main.o srcs/Fixed.o srcs/Point.o srcs/bsp.o
+	$(CXX) $(CXXFLAGS) -o a.out srcs/main.o srcs/Fixed.o srcs/Point.o srcs/bsp.o
 
-%.o: %.cpp Fixed.hpp Point.hpp bsp.hpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+srcs/main.o: srcs/main.cpp
+	$(CXX) $(CXXFLAGS) -c -o srcs/main.o srcs/main.cpp
+
+srcs/Fixed.o: srcs/Fixed.cpp
+	$(CXX) $(CXXFLAGS) -c -o srcs/Fixed.o srcs/Fixed.cpp
+
+srcs/Point.o: srcs/Point.cpp
+	$(CXX) $(CXXFLAGS) -c -o srcs/Point.o srcs/Point.cpp
+
+srcs/bsp.o: srcs/bsp.cpp
+	$(CXX) $(CXXFLAGS) -c -o srcs/bsp.o srcs/bsp.cpp
 
 clean:
-	rm -f $(OBJ)
-
-fclean: clean
-	rm -f $(TARGET)
-
-re: fclean all
-
-.PHONY: all clean fclean re
+	rm -f a.out srcs/*.o
