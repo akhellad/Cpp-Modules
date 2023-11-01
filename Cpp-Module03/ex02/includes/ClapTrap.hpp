@@ -1,4 +1,3 @@
-// ClapTrap.hpp
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
@@ -7,15 +6,15 @@
 
 class ClapTrap {
 public:
-	ClapTrap(const std::string& name); // Constructeur
-	~ClapTrap(); // Destructeur
+	ClapTrap(const std::string& name);
+	~ClapTrap();
 
 	virtual void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	int getHitPoints() const;
 
-protected: // Utilisez protected pour permettre aux classes dérivées d'accéder à ces membres
+protected: 
 	std::string name;
 	int hitPoints;
 	int energyPoints;

@@ -1,22 +1,31 @@
 // WrongAnimal.cpp
 #include "../includes/WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : type("Generic Animal") {
-	std::cout << "A wrong animal is born!" << std::endl;
+WrongAnimal::WrongAnimal() : type("Unknown") {
+    std::cout << "WrongAnimal constructor called." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const std::string& t) : type(t) {
-	std::cout << "A wrong " << type << " is born!" << std::endl;
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type) {
+    std::cout << "WrongAnimal copy constructor called." << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
-	std::cout << "The wrong " << type << " is destroyed!" << std::endl;
+    std::cout << "WrongAnimal destructor called." << std::endl;
+}
+
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
+    std::cout << "WrongAnimal assignment operator called." << std::endl;
+    if (this != &other) {
+        type = other.type;
+    }
+    return *this;
 }
 
 void WrongAnimal::makeSound() const {
-	std::cout << "Wrong Animal sound" << std::endl;
+    std::cout << "WrongAnimal sound" << std::endl;
 }
 
-const std::string& WrongAnimal::getType() const {
-	return type;
+std::string WrongAnimal::getType() const {
+    return type;
 }
+

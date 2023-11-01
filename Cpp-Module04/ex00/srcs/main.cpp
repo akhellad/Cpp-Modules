@@ -15,11 +15,9 @@ int main() {
 	j->makeSound();
 	i->makeSound();
 
-	// WrongAnimal et WrongCat
 	std::cout << wrongI->getType() << " " << std::endl;
 	wrongI->makeSound();
 
-	// Assurez-vous de libérer la mémoire allouée dynamiquement
 	delete j;
 	delete i;
 	delete wrongI;

@@ -9,7 +9,7 @@ public:
 	ScavTrap(const std::string& name);
 	~ScavTrap();
 
-	void attack(const std::string& target) override;
+	void attack(const std::string& target) ;
 	void guardGate(); // La capacité spéciale
 
 	// Vous pouvez ajouter d'autres membres ou méthodes propres à ScavTrap ici

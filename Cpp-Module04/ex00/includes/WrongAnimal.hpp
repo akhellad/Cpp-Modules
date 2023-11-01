@@ -7,15 +7,17 @@
 
 class WrongAnimal {
 public:
-	WrongAnimal();
-	WrongAnimal(const std::string& type);
-	virtual ~WrongAnimal();
+    WrongAnimal();
+    WrongAnimal(const WrongAnimal& other);
+    WrongAnimal& operator=(const WrongAnimal& other);
+    virtual ~WrongAnimal();
 
-	virtual void makeSound() const;
-	virtual const std::string& getType() const;
+    virtual void makeSound() const;
+
+    std::string getType() const;
 
 protected:
-	std::string type;
+    std::string type;
 };
 
 #endif // WRONGANIMAL_HPP

@@ -1,7 +1,7 @@
 CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra -g3
-TARGET = a.out
-SRC = srcs/main.cpp srcs/Animal.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp srcs/WrongCat.cpp
+CXXFLAGS = -Wall -Werror -Wextra
+TARGET = Animals
+SRC = srcs/main.cpp srcs/Animal.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp srcs/WrongCat.cpp srcs/Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(TARGET)

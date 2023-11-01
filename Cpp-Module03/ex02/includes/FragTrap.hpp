@@ -9,7 +9,7 @@ public:
 	FragTrap(const std::string& name);
 	~FragTrap();
 
-	void attack(const std::string& target) override;
+	void attack(const std::string& target) ;
 	void highFivesGuys();
 
 	// Vous pouvez ajouter d'autres membres ou méthodes propres à FragTrap ici
