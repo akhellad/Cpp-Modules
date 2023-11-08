@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:28:34 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/02 13:48:09 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/11/07 09:42:21 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-
-enum class ObjectType { A, B, C };
 
 Base* generate() {
     std::srand(std::time(0));
@@ -32,47 +30,35 @@ Base* generate() {
     }
 }
 
-ObjectType identifyObjectType(Base* p) {
+void identifyObjectType(Base* p) {
     if (dynamic_cast<A*>(p)) {
-        return ObjectType::A;
+        std::cout << "A" << std::endl;
     } else if (dynamic_cast<B*>(p)) {
-        return ObjectType::B;
+        std::cout << "B" << std::endl;
     } else if (dynamic_cast<C*>(p)) {
-        return ObjectType::C;
-    }
-    return ObjectType::A;
-}
-
-void identify(Base* p) {
-    ObjectType type = identifyObjectType(p);
-
-    switch (type) {
-        case ObjectType::A:
-            std::cout << "A" << std::endl;
-            break;
-        case ObjectType::B:
-            std::cout << "B" << std::endl;
-            break;
-        case ObjectType::C:
-            std::cout << "C" << std::endl;
-            break;
+        std::cout << "C" << std::endl;
     }
 }
 
 void identify(Base& p) {
-    ObjectType type = identifyObjectType(&p);
-
-    switch (type) {
-        case ObjectType::A:
-            std::cout << "A" << std::endl;
-            break;
-        case ObjectType::B:
-            std::cout << "B" << std::endl;
-            break;
-        case ObjectType::C:
-            std::cout << "C" << std::endl;
-            break;
+    try
+    {
+        Base x = dynamic_cast<A &>(p);
+        std::cout << "A" << std::endl;
     }
+    catch(std::exception& e){}
+    try
+    {
+        Base x = dynamic_cast<B &>(p);
+        std::cout << "B" << std::endl;
+    }
+    catch(std::exception& e){}
+    try
+    {
+        Base x = dynamic_cast<C &>(p);
+        std::cout << "C" << std::endl;
+    }
+    catch(std::exception& e){}
 }
 
 int main() {
@@ -80,7 +66,7 @@ int main() {
 
     Base* base = generate();
 
-    identify(base);
+    identifyObjectType(base);
     identify(*base);
 
     delete base;
