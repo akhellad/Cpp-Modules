@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 03:29:36 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/16 15:27:45 by akhellad         ###   ########.fr       */
+/*   Created: 2023/11/09 10:33:57 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/09 10:34:27 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/RPN.hpp"
 #include <iostream>
-#include <cctype>
 
-int main(int argc, char **argv) 
-{
-    if (argc < 2) 
-	{
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+int main(int argc, char** argv) {
+    if (argc != 2) {
+        std::cerr << "Usage: ./RPN <expression>\n";
         return 1;
     }
 
-    for (int i = 1; i < argc; ++i) 
-	{
-        for (int j = 0; argv[i][j]; ++j) 
-		{
-            std::cout << (char)toupper(argv[i][j]);
-        }
-        if (i < argc - 1) 
-		{
-            std::cout << " ";
-        }
-    }
-    std::cout << std::endl;
+    RPN calculator;
 
-    return (0);
+    try {
+        int result = calculator.evaluateExpression(argv[1]);
+        std::cout << result << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
+    }
+
+    return 0;
 }

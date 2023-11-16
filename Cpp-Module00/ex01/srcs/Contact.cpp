@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 17:43:18 by akhellad          #+#    #+#             */
-/*   Updated: 2023/08/31 19:16:19 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:40:49 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,46 @@
 #include <iomanip>
 #include <limits>
 #include <string>
+#include <stdexcept>
 
 Contact::Contact(void) {}
 
-void	Contact::fill_contact(void){
-	std::cout << "Enter first name: ";
-	std::getline(std::cin, _first_name);
-	std::cout << "Enter last name: ";
-	std::getline(std::cin, _last_name);
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, _nickname);
-	std::cout << "Enter phone number: ";
-	std::getline(std::cin, _phone_number);
-	std::cout << "Enter Darkest secret: ";
-	std::getline(std::cin, _darkest_secret);
+int Contact::fill_contact(void) {
+    std::cout << "Enter first name: ";
+    std::getline(std::cin, _first_name);
+    if (_first_name.empty()) {
+        std::cout << ("First name cannot be empty") << std::endl;
+		return 1;
+    }
+
+    std::cout << "Enter last name: ";
+    std::getline(std::cin, _last_name);
+    if (_last_name.empty()) {
+        std::cout << ("Last name cannot be empty") << std::endl;
+		return 1;
+    }
+
+    std::cout << "Enter nickname: ";
+    std::getline(std::cin, _nickname);
+    if (_nickname.empty()) {
+        std::cout << ("Nickname cannot be empty") << std::endl;
+		return 1;
+    }
+
+    std::cout << "Enter phone number: ";
+    std::getline(std::cin, _phone_number);
+    if (_phone_number.empty()) {
+        std::cout << ("Phone number cannot be empty") << std::endl;
+		return 1;
+    }
+
+    std::cout << "Enter Darkest secret: ";
+    std::getline(std::cin, _darkest_secret);
+    if (_darkest_secret.empty()) {
+        std::cout << ("Darkest secret cannot be empty") << std::endl;
+		return 1;
+    }
+	return (0);
 }
 
 void	Contact::print_contact(void) const{

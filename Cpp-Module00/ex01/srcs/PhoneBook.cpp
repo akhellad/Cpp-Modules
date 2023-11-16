@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 17:47:31 by akhellad          #+#    #+#             */
-/*   Updated: 2023/08/31 19:22:43 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:41:59 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,20 @@ PhoneBook::PhoneBook(void){
 	_index = 0;
 }
 
-void	PhoneBook::add_contact(void){
-	if(_index == 8)
-		_index = 0;
-    _contacts[_index++].fill_contact();
-	if (_nb_contacts < 8)
-		_nb_contacts++;
+void PhoneBook::add_contact(void) {
+    if (_index == 8)
+        _index = 0;
+
+    // Appeler fill_contact et vérifier le retour
+    if (_contacts[_index].fill_contact() == 0) {
+        // Si fill_contact retourne 0, l'ajout est réussi
+        _index++;
+        if (_nb_contacts < 8)
+            _nb_contacts++;
+    } else {
+        // Si fill_contact retourne 1, ne rien faire
+        std::cout << "Contact not added due to missing information." << std::endl;
+    }
 }
 
 void PhoneBook::search_contact() const {
