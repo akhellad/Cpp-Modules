@@ -1,16 +1,28 @@
-CXX = g++
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/22 10:36:04 by akhellad          #+#    #+#              #
+#    Updated: 2023/11/22 10:40:21 by akhellad         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-TARGET = a.out
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+TARGET = Fixed
 SRC = srcs/main.cpp srcs/Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CXX) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp Fixed.hpp
-	$(CXX) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	rm -f $(OBJ)

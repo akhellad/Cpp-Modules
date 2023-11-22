@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 10:39:46 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/22 10:49:41 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/Fixed.hpp"
-#include <cmath> // Pour roundf
+#include <cmath>
 
 Fixed::Fixed() : value(0) {
     std::cout << "Default constructor called" << std::endl;

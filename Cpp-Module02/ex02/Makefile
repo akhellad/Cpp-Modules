@@ -1,6 +1,18 @@
-CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra
-TARGET = a.out
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/22 11:07:59 by akhellad          #+#    #+#              #
+#    Updated: 2023/11/22 11:08:00 by akhellad         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+TARGET = Fixed
 SRC = srcs/main.cpp srcs/Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 

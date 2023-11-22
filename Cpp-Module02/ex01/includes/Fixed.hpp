@@ -1,4 +1,3 @@
-// Fixed.hpp
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -19,9 +18,9 @@ public:
     float toFloat() const;
     int toInt() const;
 
-    Fixed &operator=(const Fixed &other); // Déclaration seulement
+    Fixed &operator=(const Fixed &other);
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
-#endif // FIXED_HPP
+#endif

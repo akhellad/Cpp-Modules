@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 11:09:07 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/22 11:09:33 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -36,10 +48,10 @@ public:
     Fixed operator--(int);
 
 
+    static Fixed &min(Fixed &a, Fixed &b);
     static const Fixed &min(const Fixed &a, const Fixed &b);
-    static const Fixed &min(const Fixed &a, const Fixed &b, bool &result);
+    static Fixed &max(Fixed &a, Fixed &b);
     static const Fixed &max(const Fixed &a, const Fixed &b);
-    static const Fixed &max(const Fixed &a, const Fixed &b, bool &result);
 
     Fixed &operator=(const Fixed &other); 
 };

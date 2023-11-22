@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 11:08:08 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/22 11:08:10 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/Fixed.hpp"
 #include <cmath>
 
@@ -85,32 +97,20 @@ Fixed Fixed::operator--(int) {
     return temp;
 }
 
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+    return (a < b) ? a : b;
+}
+
 const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
     return (a < b) ? a : b;
 }
 
-const Fixed &Fixed::min(const Fixed &a, const Fixed &b, bool &result) {
-    if (a < b) {
-        result = true;
-        return a;
-    } else {
-        result = false;
-        return b;
-    }
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+    return (a > b) ? a : b;
 }
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
     return (a > b) ? a : b;
-}
-
-const Fixed &Fixed::max(const Fixed &a, const Fixed &b, bool &result) {
-    if (a > b) {
-        result = true;
-        return a;
-    } else {
-        result = false;
-        return b;
-    }
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
