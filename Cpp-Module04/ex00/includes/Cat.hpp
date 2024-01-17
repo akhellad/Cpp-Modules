@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:18:42 by akhellad          #+#    #+#             */
-/*   Updated: 2023/10/31 14:12:55 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:42:56 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
     Cat& operator=(const Cat& other);
     ~Cat();
 
-    void makeSound() const override;
+    void makeSound() const;
 };
 
 #endif

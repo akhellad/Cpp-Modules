@@ -1,6 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 13:25:27 by akhellad          #+#    #+#             */
+/*   Updated: 2024/01/17 13:31:05 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/span.hpp"
 #include <algorithm>
 #include <stdexcept>
+
+
+Span::Span(const Span& other) : _N(other._N), _numbers(other._numbers) {}
+
+
+Span& Span::operator=(const Span& other) {
+    if (this != &other) {
+        _N = other._N;
+        _numbers = other._numbers;
+    }
+    return *this;
+}
 
 Span::Span(unsigned int n) : _N(n) {
     _numbers.reserve(n);
@@ -42,5 +66,9 @@ int Span::longestSpan() const {
     std::vector<int> sortedNumbers = _numbers;
     std::sort(sortedNumbers.begin(), sortedNumbers.end());
     return sortedNumbers.back() - sortedNumbers.front();
+}
+
+const std::vector<int>& Span::getNumbers() const {
+    return _numbers;
 }
 

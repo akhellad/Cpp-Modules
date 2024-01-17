@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:17:17 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/02 12:04:56 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:27:56 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,32 @@ bool	check_input(std::string &input)
 	return (true);
 }
 
-void	parsing(std::string const &input)
+void parsing(std::string const &input)
 {
-	if(input.size() == 1)
-		ScalarConverter::setArgType(ScalarConverter::CHAR);
-	else if(input == "+inf" || input == "+inff" || input == "-inf" || input == "-inff" || input == "nan" || input == "nanf")
-	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << input << std::endl;
-		std::cout << "double: " << input << std::endl;
-		return ;
-	}
-	else if(input.find(".") != std::string::npos)
-	{
-		if(input.find("f") != std::string::npos)
-			ScalarConverter::setArgType(ScalarConverter::FLOAT);
-		else
-			ScalarConverter::setArgType(ScalarConverter::DOUBLE);
-	}
-	else
-		ScalarConverter::setArgType(ScalarConverter::INT);
+    if(input.size() == 1)
+    {
+        if(std::isdigit(input[0]))
+            ScalarConverter::setArgType(ScalarConverter::INT);
+        else
+            ScalarConverter::setArgType(ScalarConverter::CHAR);
+    }
+    else if(input == "+inf" || input == "+inff" || input == "-inf" || input == "-inff" || input == "nan" || input == "nanf")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << input << std::endl;
+        std::cout << "double: " << input << std::endl;
+        return ;
+    }
+    else if(input.find(".") != std::string::npos)
+    {
+        if(input.find("f") != std::string::npos)
+            ScalarConverter::setArgType(ScalarConverter::FLOAT);
+        else
+            ScalarConverter::setArgType(ScalarConverter::DOUBLE);
+    }
+    else
+        ScalarConverter::setArgType(ScalarConverter::INT);
 }
 
 void	ScalarConverter::convert(std::string &input)

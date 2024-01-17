@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:36:56 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 14:24:06 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:56:17 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,34 @@
 
 #include <iostream>
 
-#define RESET	"\e[0m"
-#define RED		"\e[31m"
-#define GREEN	"\e[32m"
-#define YELLOW	"\e[33m"
-#define BLUE	"\e[34m"
-#define PURPLE	"\e[35m"
-#define CYAN	"\e[36m"
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src._name), _grade(src._grade){}
 
-Bureaucrat::Bureaucrat(void)
-		: _name("John Doe"), _grade(Bureaucrat::lowestGrade)
+Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name)
 {
-	std::cout << CYAN "Bureaucrat default constructor called." RESET << std::endl;
-	return ;
+    if (!checkGrade(grade)) {
+        throw;
+    }
+    this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src)
-		: _name(src._name), _grade(src._grade)
-{
-	std::cout << CYAN "Bureaucrat copy constructor called." RESET << std::endl;
-	return ;
+bool Bureaucrat::checkGrade(int grade) const {
+    if (grade < 1) {
+        throw GradeTooHighException();
+        return false;
+    } else if (grade > 150) {
+        throw GradeTooLowException();
+        return false;
+    }
+    return true;
 }
 
-Bureaucrat::Bureaucrat(std::string const & name, int grade)
-	: _name(name), _grade(Bureaucrat::lowestGrade)
-{
-	std::cout << CYAN "Bureaucrat name/grade constructor called." RESET << std::endl;
-	if (grade < Bureaucrat::highestGrade)
-		throw(Bureaucrat::GradeTooHighException());
-	else if (grade > Bureaucrat::lowestGrade)
-		throw(Bureaucrat::GradeTooLowException());
-	else
-		this->_grade = grade;
-	return ;
-}
+Bureaucrat::~Bureaucrat(){}
 
-Bureaucrat::~Bureaucrat(void)
-{
-	std::cout << CYAN "Bureaucrat desctructor called." RESET << std::endl;
-	return ;
-}
-
-Bureaucrat &	Bureaucrat::operator=(Bureaucrat const & src)
-{
-	std::cout << CYAN "Bureaucrat assignment operator overload called."
-		RESET << std::endl;
-	this->_grade = src._grade;
-	return (*this);
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
+    if (this != &other) {
+        this->_grade = other._grade;
+    }
+    return *this;
 }
 
 std::string const &	Bureaucrat::getName(void) const
@@ -73,57 +54,27 @@ int	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-void	Bureaucrat::incrementGrade(void)
-{
-	this->incrementGrade(1);
+void Bureaucrat::incrementGrade() {
+    if (!checkGrade(_grade - 1)) {
+        throw;
+    }
+    _grade--;
 }
 
-void	Bureaucrat::incrementGrade(int i)
-{
-	if (this->_grade - i < Bureaucrat::highestGrade)
-		return (throw(Bureaucrat::GradeTooHighException()));
-	else 
-	{
-		std::cout << GREEN << *this << " was promoted to grade "
-			<< this->_grade - i << "!"
-			RESET << std::endl;
-		this->_grade -= i;
-	}
-	return ;
+void Bureaucrat::decrementGrade() {
+    if (!checkGrade(_grade + 1)) {
+        throw;
+    }
+    _grade++;
 }
 
-void	Bureaucrat::decrementGrade(void)
-{
-	this->decrementGrade(1);
-}
-
-void	Bureaucrat::decrementGrade(int i)
-{
-	if (this->_grade + i > Bureaucrat::lowestGrade)
-		return (throw(Bureaucrat::GradeTooLowException()));
-	else
-	{
-		std::cout << YELLOW << *this << " was demoted to grade "
-			<< this->_grade + i << "!"
-			RESET << std::endl;
-		this->_grade += i;
-	}
-	return ;
-}
-
-void	Bureaucrat::signForm(AForm & form) const
-{
-	try
-	{
-		form.beSigned(*this);
-		std::cout << GREEN << *this << " signed " << form << RESET << std::endl;
-	}
-	catch (std::exception const & e)
-	{
-		std::cout << RED << *this << " couldn't sign " << form << " because: "
-			<< e.what() << RESET << std::endl;
-	}
-	return ;
+void Bureaucrat::signForm(AForm& form) const{
+    if (form.beSigned(*this)) {
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    } else {
+        std::cout << _name << " couldn't sign " << form.getName() << " because ";
+        throw GradeTooLowException();
+    }
 }
 
 void	Bureaucrat::executeForm(AForm & form) const
@@ -131,12 +82,12 @@ void	Bureaucrat::executeForm(AForm & form) const
 	try
 	{
 		form.execute(*this);
-		std::cout << GREEN << *this << " executed " << form << RESET << std::endl;
+		std::cout << *this << " executed " << form << std::endl;
 	}
 	catch (std::exception const & e)
 	{
-		std::cout << RED << *this << " couldn't execute " << form << " because: "
-			<< e.what() << RESET << std::endl;
+		std::cout << *this << " couldn't execute " << form << " because: "
+			<< e.what() << std::endl;
 	}
 	return ;
 }

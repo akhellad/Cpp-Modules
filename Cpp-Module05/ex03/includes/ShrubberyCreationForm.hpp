@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:23:27 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 14:18:20 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:58:48 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class ShrubberyCreationForm : public AForm
 	private:
 		std::string					_target;
 		static std::string const	_shrubbery;
-		static std::string const	_shrubberyAlt;
 };
 
 #endif

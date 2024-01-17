@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 14:20:55 by akhellad          #+#    #+#             */
+/*   Updated: 2024/01/17 14:21:25 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin() {
     return std::stack<T>::c.begin();

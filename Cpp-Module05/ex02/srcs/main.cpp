@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:34:08 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 14:26:24 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:02:27 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,25 @@
 #include "../includes/PresidentialPardonForm.hpp"
 #include <iostream>
 
-#define RESET	"\e[0m"
-#define RED		"\e[31m"
-
 int	main(void)
 {
 	Bureaucrat	lowlyBureaucrat("Lowly Larry", 142);
 	Bureaucrat	averageBureaucrat("Average Andy", 65);
 	Bureaucrat	highBureaucrat("High Harry", 6);
 
-	std::cout << std::endl << "Three bureaucrats created:\n"
-			"\t" << lowlyBureaucrat << "\n"
-			"\t" << averageBureaucrat << "\n"
-			"\t" << highBureaucrat << std::endl << std::endl;
+	std::cout << "Bureaucrats\n"
+			<< lowlyBureaucrat << "\n"
+			<< averageBureaucrat << "\n"
+			<< highBureaucrat << std::endl;
 	
 	ShrubberyCreationForm	shrubForm("Forest");
 	RobotomyRequestForm		robotomyForm("CEO");
 	PresidentialPardonForm	pardonForm(highBureaucrat.getName());
 
-	std::cout << std::endl << "Three forms created:\n"
-			"\t" << shrubForm << "\n"
-			"\t" << robotomyForm << "\n"
-			"\t" << pardonForm << std::endl;
+	std::cout << std::endl << "Forms:\n"
+			<< shrubForm << "\n"
+			<< robotomyForm << "\n"
+			<< pardonForm << std::endl;
 
 	std::cout << std::endl << "-- Signing and executing Shrubbery form:" << std::endl;
 	lowlyBureaucrat.signForm(shrubForm);

@@ -1,4 +1,15 @@
-// FragTrap.hpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 16:10:14 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/30 16:10:24 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
@@ -11,8 +22,6 @@ public:
 
 	void attack(const std::string& target) ;
 	void highFivesGuys();
-
-	// Vous pouvez ajouter d'autres membres ou méthodes propres à FragTrap ici
 };
 
-#endif // FRAGTRAP_HPP
+#endif

@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:34:08 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 14:36:19 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:08:22 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include "../includes/Intern.hpp"
 #include <iostream>
 
-#define RESET	"\e[0m"
-#define RED		"\e[31m"
 
 void	testInternFormCreation(std::string formName, std::string target)
 {
@@ -37,7 +35,7 @@ void	testInternFormCreation(std::string formName, std::string target)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << RED ": " << e.what() << RESET << std::endl;
+		std::cout << ": " << e.what() << std::endl;
 	}
 }
 

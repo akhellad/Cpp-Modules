@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:19:11 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/07 12:35:40 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:18:52 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@ int main() {
     printSpan(sp);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
+
+
+    Span span = Span(5);
+    span.addNumber(6);
+    span.addNumber(3);
+    span.addNumber(17);
+    span.addNumber(9);
+    span.addNumber(11);
+    std::cout << span.shortestSpan() << std::endl;
+    std::cout << span.longestSpan() << std::endl;
 
     return 0;
 }

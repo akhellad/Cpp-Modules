@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:28:51 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 14:16:57 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:12:40 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,20 @@ class AForm;
 class Bureaucrat
 {
 	public:
-		Bureaucrat(void);
 		Bureaucrat(Bureaucrat const & src);
 		Bureaucrat(std::string const & name, int grade);
-		~Bureaucrat(void);
-
 		Bureaucrat &	operator=(Bureaucrat const & src);
+		~Bureaucrat(void);
 
 		std::string const &	getName(void) const;
 		int					getGrade(void) const;
 
-		void	incrementGrade(void);
-		void	incrementGrade(int i);
-		void	decrementGrade(void);
-		void	decrementGrade(int i);
+    	void incrementGrade();
+    	void decrementGrade();
+    	bool checkGrade(int grade) const;
 
 		void	signForm(AForm & form) const;
 		void	executeForm(AForm & form) const;
-
-		static int const	highestGrade = 1;
-		static int const	lowestGrade = 150;
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -53,13 +47,12 @@ class Bureaucrat
 		};
 
 	private:
+		Bureaucrat();
 		std::string const	_name;
 		int					_grade;
 
 };
 
-std::ostream &	operator<<(std::ostream & os, Bureaucrat const & obj);
+std::ostream &	operator<<(std::ostream & os, Bureaucrat const & bureaucrat);
 
 #endif
-
-

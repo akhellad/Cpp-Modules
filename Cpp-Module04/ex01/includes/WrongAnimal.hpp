@@ -1,4 +1,15 @@
-// WrongAnimal.hpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/01 15:52:36 by akhellad          #+#    #+#             */
+/*   Updated: 2023/12/01 15:52:41 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WRONGANIMAL_HPP
 #define WRONGANIMAL_HPP
 
@@ -18,4 +29,4 @@ protected:
 	std::string type;
 };
 
-#endif // WRONGANIMAL_HPP
+#endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 16:11:07 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/30 16:15:02 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "../includes/ClapTrap.hpp"
 #include "../includes/FragTrap.hpp"
@@ -12,7 +24,7 @@ int main() {
 
 	// Test avec FragTrap
 	FragTrap fragtrap("FR4G-TP");
-	fragtrap.attack("Spiderant");
+	fragtrap.attack("Spiderman");
 	fragtrap.takeDamage(20);
 	fragtrap.beRepaired(15);
 	fragtrap.highFivesGuys();

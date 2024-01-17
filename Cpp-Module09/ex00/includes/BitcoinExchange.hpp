@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:42:58 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/08 14:40:58 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:48:27 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # include <string>
 # include <strings.h>
 # include <sys/stat.h>
+#include <cctype>
+#include <algorithm>
 
 class BitcoinExchange
 {

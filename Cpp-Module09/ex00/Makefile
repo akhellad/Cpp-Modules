@@ -1,34 +1,45 @@
-CXX = g++
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/17 16:08:31 by akhellad          #+#    #+#              #
+#    Updated: 2024/01/17 17:20:49 by akhellad         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CXXFLAGS = -std=c++98 -Wall -Wextra
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCDIR = srcs
-INCDIR = include
-OBJDIR = objs
-BINDIR = .
+SRCS_DIR = srcs
+OBJS_DIR = objs
+HDRS_DIR = .hpp
 
+TARGET = btc
 
-SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+SRCS = $(wildcard $(SRCS_DIR)/*.cpp)
 
-OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
+OBJS = $(patsubst $(SRCS_DIR)/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
-EXEC = btc
+HDRS = $(wildcard $(HDRS_DIR)/*.h)
 
-all: $(BINDIR)/$(EXEC)
+.PHONY: all clean fclean re
 
-$(BINDIR)/$(EXEC): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+all: $(TARGET)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp $(HDRS)
+	@mkdir -p $(OBJS_DIR)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJS) $(BINDIR)/$(EXEC)
+	rm -rf $(OBJS_DIR)
 
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
+fclean: clean
+	rm -f $(TARGET)
 
-.PHONY: all clean
-
-$(OBJS): | $(OBJDIR)
-
+re: fclean all

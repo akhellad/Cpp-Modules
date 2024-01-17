@@ -1,4 +1,15 @@
-// ScavTrap.cpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 16:04:56 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/30 16:05:14 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ScavTrap.hpp"
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {

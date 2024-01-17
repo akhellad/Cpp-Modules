@@ -6,13 +6,12 @@
 #    By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:05:49 by akhellad          #+#    #+#              #
-#    Updated: 2023/11/07 10:07:58 by akhellad         ###   ########.fr        #
+#    Updated: 2024/01/17 12:33:49 by akhellad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-LDFLAGS =
 
 SRCS_DIR = srcs
 OBJS_DIR = objs

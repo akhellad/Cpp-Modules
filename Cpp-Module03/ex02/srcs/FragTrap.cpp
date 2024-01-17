@@ -1,4 +1,15 @@
-// FragTrap.cpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 16:10:58 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/30 16:11:04 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/FragTrap.hpp"
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {

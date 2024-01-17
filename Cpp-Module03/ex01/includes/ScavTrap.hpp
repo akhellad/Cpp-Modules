@@ -1,8 +1,19 @@
-// ScavTrap.hpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 16:04:12 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/30 16:04:21 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
-#include "ClapTrap.hpp" // Assurez-vous d'inclure le fichier d'en-tête de ClapTrap
+#include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
 public:
@@ -10,10 +21,9 @@ public:
 	~ScavTrap();
 
 	void attack(const std::string& target) ;
-	void guardGate(); // La capacité spéciale
+	void guardGate();
 
-	// Vous pouvez ajouter d'autres membres ou méthodes propres à ScavTrap ici
 };
 
-#endif // SCAVTRAP_HPP
+#endif
 

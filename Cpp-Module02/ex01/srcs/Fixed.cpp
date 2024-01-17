@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:39:46 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/22 10:49:41 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:04:45 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Fixed::Fixed(const float floatValue) : value(roundf(floatValue * (1 << fractiona
 
 Fixed::Fixed(const Fixed &other) {
     std::cout << "Copy constructor called" << std::endl;
-    this->value = other.value;
+    *this = other;
 }
 
 Fixed::~Fixed() {

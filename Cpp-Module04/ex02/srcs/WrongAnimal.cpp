@@ -1,4 +1,15 @@
-// WrongAnimal.cpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/01 16:04:45 by akhellad          #+#    #+#             */
+/*   Updated: 2023/12/01 16:04:46 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() : type("Generic Animal") {

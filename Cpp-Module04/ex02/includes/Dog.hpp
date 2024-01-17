@@ -11,7 +11,7 @@ public:
     Dog& operator=(const Dog& other);
     ~Dog();
 
-    void makeSound() const override;
+    void makeSound() const;
 
 private:
     Brain* brain;

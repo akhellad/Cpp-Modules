@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:59:58 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/07 11:16:40 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:21:10 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main() {
     int array[] = {1, 2, 3, 4, 5};
-    std::vector<int> vector(array, array + sizeof(array) / sizeof(int));
+    std::vector<int> vector(array, array + sizeof(array) / sizeof(array[0]));
     std::list<int> list;
     list.push_back(10);
     list.push_back(20);
@@ -26,7 +26,7 @@ int main() {
     list.push_back(50);
 
     try {
-        int valueToFind = 3;
+        int valueToFind = 4;
         std::vector<int>::iterator vectorResult = easyfind(vector, valueToFind);
         std::cout << "Value " << valueToFind << " found in vector at position " << std::distance(vector.begin(), vectorResult) << std::endl;
     } catch (const std::runtime_error &e) {

@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:03:32 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 09:20:13 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:26:40 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
 }
 
 Form::~Form() {}
+
+Form &	Form::operator=(const Form& other)
+{
+	this->sign = other.sign;
+	return (*this);
+}
 
 const std::string& Form::getName() const {
     return name;

@@ -6,11 +6,12 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:11:39 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/08 14:44:53 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:34:52 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/BitcoinExchange.hpp"
+#include <iostream>
 
 void    checkArgs(int ac, char **av);
 std::fstream *openFile(char *file);
@@ -18,28 +19,6 @@ void evaluateInput(BitcoinExchange &btc, std::fstream &fs);
 bool checkLineEvaluation(char *line);
 bool isStringEmpty(std::string string);
 
-int main(int ac, char **av)
-{
-    BitcoinExchange *btc = NULL;
-    std::fstream *fs = NULL;
-    try
-    {
-        checkArgs(ac, av);
-        fs = openFile(av[1]);
-        btc = new BitcoinExchange();
-        evaluateInput(*btc, *fs);
-    }
-    catch(std::exception &e)
-    {
-        std::cerr << "Error : " << e.what() << std::endl;
-        delete btc;
-        delete fs;
-        return (1);
-    }
-    delete btc;
-    delete fs;
-    return (0);
-}
 
 void checkArgs(int ac, char **av)
 {
@@ -129,6 +108,36 @@ std::string *splitString(std::string string, std::string set)
         throw(std::out_of_range(string + " : invalid input"));
     }
     split[DATE] = string.substr(0, delim);
-    split[VALUE] = string.substr(delim + set.length(), std::string::npos);
+    std::string valuePart = string.substr(delim + set.length(), std::string::npos);
+    size_t firstNonSpace = valuePart.find_first_not_of(" ");
+    size_t lastNonSpace = valuePart.find_last_not_of(" ");
+    if (firstNonSpace == std::string::npos || lastNonSpace == std::string::npos) {
+        split[VALUE] = "";
+    } else {
+        split[VALUE] = valuePart.substr(firstNonSpace, lastNonSpace - firstNonSpace + 1);
+    }
     return (split);
+}
+
+int main(int ac, char **av)
+{
+    BitcoinExchange *btc = NULL;
+    std::fstream *fs = NULL;
+    try
+    {
+        checkArgs(ac, av);
+        fs = openFile(av[1]);
+        btc = new BitcoinExchange();
+        evaluateInput(*btc, *fs);
+    }
+    catch(std::exception &e)
+    {
+        std::cerr << "Error : " << e.what() << std::endl;
+        delete btc;
+        delete fs;
+        return (1);
+    }
+    delete btc;
+    delete fs;
+    return (0);
 }

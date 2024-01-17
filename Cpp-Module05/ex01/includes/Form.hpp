@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:02:48 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 09:19:56 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:23:13 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ public:
     bool beSigned(const Bureaucrat& bureaucrat);
 
 private:
+    Form(void);
     const std::string name;
     bool sign;
-    const int signGrade;    // Ajoutez ceci
-    const int execGrade;    // Ajoutez ceci
+    const int signGrade;
+    const int execGrade;
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& form);

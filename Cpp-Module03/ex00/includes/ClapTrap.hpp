@@ -1,4 +1,15 @@
-// ClapTrap.hpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 15:57:48 by akhellad          #+#    #+#             */
+/*   Updated: 2023/11/30 15:58:11 by akhellad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
@@ -7,8 +18,8 @@
 
 class ClapTrap {
 public:
-	ClapTrap(const std::string& name); // Constructeur
-	~ClapTrap(); // Destructeur
+	ClapTrap(const std::string& name);
+	~ClapTrap();
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
@@ -22,4 +33,4 @@ private:
 	int attackDamage;
 };
 
-#endif // CLAPTRAP_HPP
+#endif

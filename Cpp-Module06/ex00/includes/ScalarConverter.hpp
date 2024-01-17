@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:08:02 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/02 12:00:05 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:32:40 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 # include <string>
 # include <iostream>
 # include <sstream>
+# include <cctype>
 
 class ScalarConverter
 {
 	public:
 		~ScalarConverter();
 		ScalarConverter &operator=(const ScalarConverter &other);
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter &other);
 
 		enum	argType {
 			CHAR,
@@ -39,8 +42,6 @@ class ScalarConverter
 		static void DoubleConverter(std::string const &input);
 
 	private:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &other);
 		static argType _argType;
 };
 

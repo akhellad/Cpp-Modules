@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:59:42 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/08 14:45:40 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:32:25 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ int BitcoinExchange::_getYear(std::string &dateStr) const
     size_t yearLen = dateStr.find("-", 0);
     std::string yearStr = dateStr.substr(0, yearLen);
     int year = std::atoi(yearStr.c_str());
-    if (yearStr.empty() || year < 0 || year > 2050)
+    if (yearStr.empty() || year < 2008 || year > 2050)
         throw std::out_of_range(dateStr + " : invalid date");
     return (year);
 }
@@ -242,6 +242,13 @@ void    BitcoinExchange::_checkValue(std::string &valueStr) const
     {
         if (std::isalpha(*it) || !std::isprint(*it))
             throw(std::runtime_error(valueStr + " : invalid value"));
+    }
+    size_t decimalCount = std::count(valueStr.begin(), valueStr.end(), '.');
+    if (decimalCount > 1) {
+        throw std::runtime_error(valueStr + " : invalid value (multiple decimal points)");
+    }
+    if (valueStr.size() > 1 && valueStr[0] == '0' && valueStr[1] != '.') {
+        throw std::runtime_error(valueStr + " : invalid value (leading zeros)");
     }
 }
 

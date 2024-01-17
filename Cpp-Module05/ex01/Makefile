@@ -6,11 +6,11 @@
 #    By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 19:28:11 by akhellad          #+#    #+#              #
-#    Updated: 2023/10/31 19:28:24 by akhellad         ###   ########.fr        #
+#    Updated: 2023/12/18 16:01:00 by akhellad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDFLAGS =
 

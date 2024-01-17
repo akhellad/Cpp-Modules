@@ -6,43 +6,24 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:35:13 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 14:36:44 by akhellad         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:16:44 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Intern.hpp"
 #include <iostream>
 
-#define RESET	"\e[0m"
-#define RED		"\e[31m"
-#define GREEN	"\e[32m"
-#define YELLOW	"\e[33m"
-#define BLUE	"\e[34m"
-#define PURPLE	"\e[35m"
-#define CYAN	"\e[36m"
+Intern::Intern() {}
 
-Intern::Intern(void)
+Intern::Intern(Intern const & src) 
 {
-	std::cout << CYAN "Intern default constructor called." RESET << std::endl;
-	return ;
-}
-
-Intern::Intern(Intern const & src)
-{
-	std::cout << CYAN "Intern copy constructor called." RESET << std::endl;
 	(void)src;
-	return ;
 }
 
-Intern::~Intern(void)
-{
-	std::cout << CYAN "Intern desctructor called." RESET << std::endl;
-	return ;
-}
+Intern::~Intern(void) {}
 
 Intern &	Intern::operator=(Intern const & src)
 {
-	std::cout << CYAN "Intern assignment operator overload called." RESET << std::endl;
 	(void)src;
 	return (*this);
 }
@@ -82,11 +63,11 @@ AForm *	Intern::makeForm(std::string formName, std::string target)
 		if (forms[i].formName == formName)
 		{
 			formToCreate = forms[i].function(target);
-			std::cout << GREEN "Intern created " << *formToCreate << RESET << std::endl;
+			std::cout << "Intern created " << *formToCreate << std::endl;
 			return (formToCreate);
 		}
 	}
-	std::cout << RED "Intern could not create form named \""
-		<< formName << "\"" RESET;
+	std::cout << "Intern could not create form named \""
+		<< formName << "\"";
 	throw Intern::InvalidFormName();
 }

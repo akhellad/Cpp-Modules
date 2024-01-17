@@ -18,6 +18,9 @@ int main() {
 
 	// Test d'attaque sans suffisamment d'énergie
 	ClapTrap claptrap3("Low Energy CL4P-TP");
+	for (int i = 0; i < 10; i++){
+		claptrap3.attack("Spiderant");
+	}
 	claptrap3.attack("Spiderant");
 
 	// Test de dommages sans suffisamment de points de vie

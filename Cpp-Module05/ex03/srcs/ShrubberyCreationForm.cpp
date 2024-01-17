@@ -6,7 +6,7 @@
 /*   By: akhellad <akhellad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:25:30 by akhellad          #+#    #+#             */
-/*   Updated: 2023/11/01 14:25:49 by akhellad         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:59:00 by akhellad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,51 +15,23 @@
 #include <fstream>
 #include <cstdlib>
 
-#define RESET	"\e[0m"
-#define RED		"\e[31m"
-#define GREEN	"\e[32m"
-#define YELLOW	"\e[33m"
-#define BLUE	"\e[34m"
-#define PURPLE	"\e[35m"
-#define CYAN	"\e[36m"
-
-ShrubberyCreationForm::ShrubberyCreationForm(void)
+ShrubberyCreationForm::ShrubberyCreationForm()
 		:	AForm("Shrubbery Creation Form",
 					ShrubberyCreationForm::gradeToSign,
 					ShrubberyCreationForm::gradeToExecute),
-			_target("Unknown")
-{
-	std::cout << CYAN "ShrubberyCreationForm default constructor called."
-		RESET << std::endl;
-	return ;
-}
+			_target("Unknown") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src)
 		:	AForm(src),
-			_target(src._target)
-{
-	std::cout << CYAN "ShrubberyCreationForm copy constructor called."
-		RESET << std::endl;
-	return ;
-}
+			_target(src._target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target)
 		:	AForm("Shrubbery Creation Form",
 					ShrubberyCreationForm::gradeToSign,
 					ShrubberyCreationForm::gradeToExecute),
-			_target(target)
-{
-	std::cout << CYAN "ShrubberyCreationForm attribute constructor called."
-		RESET << std::endl;
-	return ;
-}
+			_target(target) {}
 
-ShrubberyCreationForm::~ShrubberyCreationForm(void)
-{
-	std::cout << CYAN "ShrubberyCreationForm destructor called."
-		RESET << std::endl;
-	return ;
-}
+ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 ShrubberyCreationForm &	ShrubberyCreationForm::operator=(
 									ShrubberyCreationForm const & src)
@@ -81,10 +53,7 @@ void	ShrubberyCreationForm::beExecuted(void) const
 								std::ofstream::out | std::ofstream::app);
 	if (ofs.is_open())
 	{
-		if (std::rand() % 2)
-			ofs << ShrubberyCreationForm::_shrubbery;
-		else
-			ofs << ShrubberyCreationForm::_shrubberyAlt;
+		ofs << ShrubberyCreationForm::_shrubbery;
 		std::cout << "A shrubbery has been planted at "
 				<< _target << "_shrubbery." << std::endl;
 		ofs.close();
@@ -104,18 +73,4 @@ std::string const ShrubberyCreationForm::_shrubbery =
 "                   _.) ,/ *%,\n"
 "           _________/)#(_____________\n\n";
 
-std::string const	ShrubberyCreationForm::_shrubberyAlt =
-"\n"
-"           \\/ |    |/\n"
-"        \\/ / \\||/  /_/___/_\n"
-"         \\/   |/ \\/\n"
-"    _\\__\\_\\   |  /_____/_\n"
-"           \\  | /          /\n"
-"  __ _-----`  |{,-----------~\n"
-"            \\ }{\n"
-"             }{{\n"
-"             }}{\n"
-"             {{}\n"
-"       , -=-~{ .-^- _\n"
-"             `}\n"
-"              {\n\n";
+
